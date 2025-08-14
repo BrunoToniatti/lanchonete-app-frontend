@@ -1,0 +1,140 @@
+<div class="agendamentos-container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="back-btn" (click)="voltarInterno()" title="Voltar ao Dashboard">
+          <span class="back-icon">← </span>
+          <span>Voltar</span>
+        </button>
+        <div class="page-title">
+          <div class="logo-icon">📅</div>
+          <div class="title-text">
+            <h1>Agendamentos de Lanches</h1>
+            <p>J&B Restaurante - Lanchonete Universitária</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="user-info">
+          <span class="user-name">Admin</span>
+          <div class="user-avatar">👨‍💼</div>
+        </div>
+        <button class="logout-btn" (click)="logout()">
+          <span>Sair</span>
+          <div class="logout-icon">🚪</div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-main">
+    <div class="content-wrapper">
+      <div class="section-header">
+        <div class="title-section">
+          <h2>Pedidos Agendados para: {{formatarData(selectedDate)}}</h2>
+          <div class="filter-section">
+            <label for="dateFilter">Filtrar por data:</label>
+            <input 
+              type="date" 
+              id="dateFilter" 
+              [value]="selectedDate"
+              (change)="onDateChange($event)"
+              class="date-filter">
+          </div>
+        </div>
+        <button class="add-btn">
+          <span>Novo Pedido</span>
+          <span class="btn-icon">➕</span>
+        </button>
+      </div>
+      
+      <div class="summary-info">
+        <div class="summary-card">
+          <div class="card-icon">🎒</div>
+          <div class="card-info">
+            <span class="card-value">{{agendamentosFiltrados.length}}</span>
+            <span class="card-label">Pedidos do Dia</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">✅</div>
+          <div class="card-info">
+            <span class="card-value">{{agendamentosConfirmados}}</span>
+            <span class="card-label">Confirmados</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">⏳</div>
+          <div class="card-info">
+            <span class="card-value">{{agendamentosPendentes}}</span>
+            <span class="card-label">Aguardando</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">💰</div>
+          <div class="card-info">
+            <span class="card-value">R$ {{valorTotalDia.toFixed(2)}}</span>
+            <span class="card-label">Total do Dia</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Celular</th>
+              <th>Horário</th>
+              <th>Lanche</th>
+              <th>Valor</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let agendamento of agendamentosFiltrados">
+              <td class="customer-name">{{agendamento.aluno}}</td>
+              <td class="phone-number">{{agendamento.celular}}</td>
+              <td class="time">{{agendamento.hora}}</td>
+              <td class="lunch-item">{{agendamento.lanche}}</td>
+              <td class="value">R$ {{agendamento.valor.toFixed(2)}}</td>
+              <td>
+                <span class="status-badge" [ngClass]="getStatusClass(agendamento.status)">
+                  {{agendamento.status}}
+                </span>
+              </td>
+              <td class="actions">
+                <button 
+                  *ngIf="agendamento.status === 'Pendente'"
+                  class="action-btn confirm"
+                  (click)="confirmarAgendamento(agendamento.id)"
+                  title="Confirmar agendamento">
+                  ✅
+                </button>
+                <button 
+                  *ngIf="agendamento.status === 'Pendente'"
+                  class="action-btn reject"
+                  (click)="recusarAgendamento(agendamento.id)"
+                  title="Recusar agendamento">
+                  ❌
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div *ngIf="agendamentosFiltrados.length === 0" class="no-data">
+          <div class="no-data-icon">📅</div>
+          <p>Nenhum agendamento encontrado para esta data.</p>
+          <button class="add-btn">
+            <span>Criar Primeiro Agendamento</span>
+            <span class="btn-icon">➕</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

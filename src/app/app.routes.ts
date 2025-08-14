@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Intro } from './pages/intro/intro';
 import { Login } from './pages/login/login';
 import { Interno } from './pages/interno/interno';
+import { Agendamentos } from './pages/agendamentos/agendamentos';
 
 export const routes: Routes = [
     {
@@ -15,6 +16,10 @@ export const routes: Routes = [
     {
         path: "interno",
         component: Interno
+    },
+    {
+        path: "agendamentos",
+        component: Agendamentos
     }
 ];
 // You can add your application routes here
