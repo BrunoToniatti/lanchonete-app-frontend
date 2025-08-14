@@ -1,0 +1,57 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="header">
+      <div class="logo">
+        <div class="hamburger-icon">🍔</div>
+        <h1 class="brand-name">J&B</h1>
+        <p class="brand-subtitle">RESTAURANTE</p>
+      </div>
+    </div>
+    
+    <div class="login-form">
+      <h2 class="welcome-text">Bem-vindo de volta!</h2>
+      <p class="subtitle">Faça login para acessar seu painel</p>
+      
+      <form (ngSubmit)="onLogin()">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="seu@email.com" required>
+        </div>
+        
+        <div class="input-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+        
+        <div class="form-options">
+          <label class="checkbox-container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Lembrar de mim
+          </label>
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+        </div>
+        
+        <button type="submit" class="login-btn">
+          <span>Entrar</span>
+          <div class="btn-icon">🍽️</div>
+        </button>
+      </form>
+      
+      <div class="divider">
+        <span>ou</span>
+      </div>
+      
+      <button class="register-btn" (click)="onRegister()">
+        Criar nova conta
+      </button>
+    </div>
+  </div>
+  
+  <div class="background-decoration">
+    <div class="food-icon icon-1">🍕</div>
+    <div class="food-icon icon-2">🍟</div>
+    <div class="food-icon icon-3">🥗</div>
+    <div class="food-icon icon-4">🍰</div>
+  </div>
+</div>

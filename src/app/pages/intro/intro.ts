@@ -14,7 +14,7 @@ export class Intro implements OnInit {
   ngOnInit() {
     // Redireciona após 3 segundos
     setTimeout(() => {
-      // this.router.navigate(['/home']); // Descomente quando tiver a rota home
+      this.router.navigate(['/login']);
     }, 3000);
   }
 }
