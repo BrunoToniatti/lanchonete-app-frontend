@@ -44,9 +44,8 @@
         <span class="tab-text">Vendas</span>
       </button>
       <button 
-        class="nav-tab" 
-        [class.active]="activeTab === 'produtos'"
-        (click)="setActiveTab('produtos')">
+        class="nav-tab nav-link" 
+        (click)="irParaProdutos()">
         <span class="tab-icon">🍽️</span>
         <span class="tab-text">Produtos</span>
       </button>
@@ -55,46 +54,36 @@
 
   <!-- Main Content -->
   <main class="dashboard-main">
-    <!-- Produtos Tab -->
-    <div class="tab-content" *ngIf="activeTab === 'produtos'">
-      <div class="section-header">
-        <h2>Gestão de Produtos</h2>
-        <button class="add-btn">
-          <span>Novo Produto</span>
-          <span class="btn-icon">➕</span>
-        </button>
-      </div>
-      
-      <div class="table-container">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Nome do Produto</th>
-              <th>Categoria</th>
-              <th>Preço</th>
-              <th>Estoque</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let produto of produtos">
-              <td class="product-name">{{produto.nome}}</td>
-              <td class="category">{{produto.categoria}}</td>
-              <td class="price">R$ {{produto.preco.toFixed(2)}}</td>
-              <td class="stock">{{produto.estoque}} unidades</td>
-              <td>
-                <span class="status-badge" [ngClass]="getStatusClass(produto.status)">
-                  {{produto.status}}
-                </span>
-              </td>
-              <td class="actions">
-                <button class="action-btn edit">✏️</button>
-                <button class="action-btn delete">🗑️</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="dashboard-welcome">
+      <div class="welcome-content">
+        <h2>Bem-vindo ao Painel Administrativo</h2>
+        <p>Use a navegação acima para acessar as diferentes seções do sistema:</p>
+        
+        <div class="features-grid">
+          <div class="feature-card" (click)="irParaAgendamentos()">
+            <div class="feature-icon">📅</div>
+            <h3>Agendamentos</h3>
+            <p>Gerencie os pedidos agendados pelos alunos</p>
+          </div>
+          
+          <div class="feature-card" (click)="irParaAndamento()">
+            <div class="feature-icon">🍳</div>
+            <h3>Andamento</h3>
+            <p>Acompanhe os pedidos em preparação</p>
+          </div>
+          
+          <div class="feature-card" (click)="irParaVendas()">
+            <div class="feature-icon">💰</div>
+            <h3>Vendas</h3>
+            <p>Controle o estoque diário de lanches</p>
+          </div>
+          
+          <div class="feature-card" (click)="irParaProdutos()">
+            <div class="feature-icon">🍽️</div>
+            <h3>Produtos</h3>
+            <p>Gerencie o cardápio e estoque</p>
+          </div>
+        </div>
       </div>
     </div>
   </main>

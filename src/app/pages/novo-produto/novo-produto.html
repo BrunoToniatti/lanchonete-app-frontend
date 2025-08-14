@@ -1,0 +1,187 @@
+<div class="novo-produto-container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="back-btn" (click)="voltarProdutos()">
+          <span class="back-icon">←</span>
+          <span>Voltar</span>
+        </button>
+        <div class="page-title">
+          <div class="logo-icon">➕</div>
+          <div class="title-text">
+            <h1>Novo Produto</h1>
+            <p>J&B Restaurante - Adicionar ao Cardápio</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="user-info">
+          <span class="user-name">Admin</span>
+          <div class="user-avatar">👨‍💼</div>
+        </div>
+        <button class="logout-btn" (click)="logout()">
+          <span>Sair</span>
+          <div class="logout-icon">🚪</div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-main">
+    <div class="content-wrapper">
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Cadastrar Novo Produto</h2>
+          <p>Preencha as informações do produto para adicionar ao cardápio</p>
+        </div>
+
+        <form class="produto-form" (ngSubmit)="salvarProduto()">
+          <!-- Nome do Produto -->
+          <div class="form-group">
+            <label for="nome" class="form-label">
+              <span class="label-icon">🏷️</span>
+              <span class="label-text">Nome do Produto *</span>
+            </label>
+            <input 
+              type="text" 
+              id="nome" 
+              class="form-input"
+              [(ngModel)]="produto.nome"
+              name="nome"
+              placeholder="Ex: Hambúrguer Especial"
+              required>
+          </div>
+
+          <!-- Categoria -->
+          <div class="form-group">
+            <label for="categoria" class="form-label">
+              <span class="label-icon">📂</span>
+              <span class="label-text">Categoria *</span>
+            </label>
+            <div class="select-wrapper">
+              <select 
+                id="categoria" 
+                class="form-select"
+                [(ngModel)]="produto.categoria"
+                name="categoria"
+                required>
+                <option value="">Selecione uma categoria</option>
+                <option *ngFor="let cat of categorias" [value]="cat">
+                  {{getCategoriaIcon(cat)}} {{cat}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Preço e Estoque -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preco" class="form-label">
+                <span class="label-icon">💰</span>
+                <span class="label-text">Preço (R$) *</span>
+              </label>
+              <input 
+                type="number" 
+                id="preco" 
+                class="form-input"
+                [(ngModel)]="produto.preco"
+                name="preco"
+                step="0.01"
+                min="0"
+                placeholder="0,00"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="estoque" class="form-label">
+                <span class="label-icon">📦</span>
+                <span class="label-text">Estoque Inicial</span>
+              </label>
+              <input 
+                type="number" 
+                id="estoque" 
+                class="form-input"
+                [(ngModel)]="produto.estoque"
+                name="estoque"
+                min="0"
+                placeholder="0">
+            </div>
+          </div>
+
+          <!-- Descrição -->
+          <div class="form-group">
+            <label for="descricao" class="form-label">
+              <span class="label-icon">📝</span>
+              <span class="label-text">Descrição</span>
+            </label>
+            <textarea 
+              id="descricao" 
+              class="form-textarea"
+              [(ngModel)]="produto.descricao"
+              name="descricao"
+              rows="4"
+              placeholder="Descreva os ingredientes e características do produto..."></textarea>
+          </div>
+
+          <!-- Status -->
+          <div class="form-group">
+            <label for="status" class="form-label">
+              <span class="label-icon">✅</span>
+              <span class="label-text">Status</span>
+            </label>
+            <div class="select-wrapper">
+              <select 
+                id="status" 
+                class="form-select"
+                [(ngModel)]="produto.status"
+                name="status">
+                <option value="Disponível">✅ Disponível</option>
+                <option value="Indisponível">❌ Indisponível</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Preview do Produto -->
+          <div class="produto-preview" *ngIf="produto.nome && produto.categoria">
+            <h3>Preview do Produto</h3>
+            <div class="preview-card">
+              <div class="preview-header">
+                <div class="preview-info">
+                  <span class="preview-icon">{{getCategoriaIcon(produto.categoria)}}</span>
+                  <div>
+                    <h4>{{produto.nome}}</h4>
+                    <p>{{produto.categoria}}</p>
+                  </div>
+                </div>
+                <div class="preview-preco">R$ {{produto.preco.toFixed(2)}}</div>
+              </div>
+              <div class="preview-descricao" *ngIf="produto.descricao">
+                <p>{{produto.descricao}}</p>
+              </div>
+              <div class="preview-footer">
+                <span>Estoque: {{produto.estoque}} unidades</span>
+                <span class="preview-status" [class]="produto.status === 'Disponível' ? 'disponivel' : 'indisponivel'">
+                  {{produto.status}}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botões -->
+          <div class="form-actions">
+            <button type="button" class="btn-cancelar" (click)="limparFormulario()">
+              <span class="btn-icon">🗑️</span>
+              <span>Limpar</span>
+            </button>
+            <button type="submit" class="btn-salvar">
+              <span class="btn-icon">💾</span>
+              <span>Salvar Produto</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

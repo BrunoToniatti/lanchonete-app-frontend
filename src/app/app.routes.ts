@@ -5,6 +5,8 @@ import { Interno } from './pages/interno/interno';
 import { Agendamentos } from './pages/agendamentos/agendamentos';
 import { Andamento } from './pages/andamento/andamento';
 import { Vendas } from './pages/vendas/vendas';
+import { Produtos } from './pages/produtos/produtos';
+import { NovoProduto } from './pages/novo-produto/novo-produto';
 
 export const routes: Routes = [
     {
@@ -30,6 +32,14 @@ export const routes: Routes = [
     {
         path: "vendas",
         component: Vendas
+    },
+    {
+        path: "produtos",
+        component: Produtos
+    },
+    {
+        path: "novo-produto",
+        component: NovoProduto
     }
 ];
 // You can add your application routes here

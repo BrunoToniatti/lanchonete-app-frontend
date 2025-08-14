@@ -1,0 +1,146 @@
+<div class="produtos-container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="back-btn" (click)="voltarInterno()">
+          <span class="back-icon">←</span>
+          <span>Voltar</span>
+        </button>
+        <div class="page-title">
+          <div class="logo-icon">🍽️</div>
+          <div class="title-text">
+            <h1>Gestão de Produtos</h1>
+            <p>J&B Restaurante - Cardápio e Estoque</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="add-btn" (click)="irParaNovoProduto()">
+          <span>Novo Produto</span>
+          <span class="btn-icon">➕</span>
+        </button>
+        <div class="user-info">
+          <span class="user-name">Admin</span>
+          <div class="user-avatar">👨‍💼</div>
+        </div>
+        <button class="logout-btn" (click)="logout()">
+          <span>Sair</span>
+          <div class="logout-icon">🚪</div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-main">
+    <div class="content-wrapper">
+      <!-- Resumo dos Produtos -->
+      <div class="section-header">
+        <h2>Resumo do Cardápio</h2>
+        <div class="summary-cards">
+          <div class="summary-card total">
+            <div class="card-icon">🍽️</div>
+            <div class="card-info">
+              <span class="card-value">{{resumoProdutos.total}}</span>
+              <span class="card-label">Total de Produtos</span>
+            </div>
+          </div>
+          <div class="summary-card disponiveis">
+            <div class="card-icon">✅</div>
+            <div class="card-info">
+              <span class="card-value">{{resumoProdutos.disponiveis}}</span>
+              <span class="card-label">Disponíveis</span>
+            </div>
+          </div>
+          <div class="summary-card estoque-baixo">
+            <div class="card-icon">⚠️</div>
+            <div class="card-info">
+              <span class="card-value">{{resumoProdutos.estoqueBaixo}}</span>
+              <span class="card-label">Estoque Baixo</span>
+            </div>
+          </div>
+          <div class="summary-card valor-medio">
+            <div class="card-icon">💰</div>
+            <div class="card-info">
+              <span class="card-value">R$ {{resumoProdutos.valorMedio.toFixed(2)}}</span>
+              <span class="card-label">Preço Médio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Produtos -->
+      <div class="section-content">
+        <div class="section-title">
+          <h3>Produtos do Cardápio</h3>
+          <p>Gerencie todos os itens disponíveis</p>
+        </div>
+
+        <div class="produtos-grid">
+          <div class="produto-card" *ngFor="let produto of produtos" [ngClass]="getStatusClass(produto.status)">
+            <!-- Header do Card -->
+            <div class="card-header">
+              <div class="produto-info">
+                <div class="categoria-icon">{{getCategoriaIcon(produto.categoria)}}</div>
+                <div class="produto-details">
+                  <h4>{{produto.nome}}</h4>
+                  <p class="categoria">{{produto.categoria}}</p>
+                </div>
+              </div>
+              <div class="status-badge" [ngClass]="getStatusClass(produto.status)">
+                <span class="status-icon">{{getStatusIcon(produto.status)}}</span>
+                <span class="status-text">{{produto.status}}</span>
+              </div>
+            </div>
+
+            <!-- Conteúdo do Card -->
+            <div class="card-content">
+              <div class="descricao">
+                <p>{{produto.descricao}}</p>
+              </div>
+
+              <div class="produto-dados">
+                <div class="preco-info">
+                  <span class="label">Preço:</span>
+                  <span class="preco">R$ {{produto.preco.toFixed(2)}}</span>
+                </div>
+                <div class="estoque-info">
+                  <span class="label">Estoque:</span>
+                  <span class="estoque" [ngClass]="produto.estoque === 0 ? 'zero' : produto.estoque <= 5 ? 'baixo' : 'normal'">
+                    {{produto.estoque}} unidades
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer do Card -->
+            <div class="card-footer">
+              <div class="produto-acoes">
+                <button class="btn-editar" (click)="editarProduto(produto.id)">
+                  <span class="btn-icon">✏️</span>
+                  <span>Editar</span>
+                </button>
+                <button class="btn-excluir" (click)="excluirProduto(produto.id)">
+                  <span class="btn-icon">🗑️</span>
+                  <span>Excluir</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagem quando não há produtos -->
+      <div class="empty-state" *ngIf="produtos.length === 0">
+        <div class="empty-icon">🍽️</div>
+        <h3>Nenhum produto cadastrado</h3>
+        <p>Adicione produtos ao cardápio para começar as vendas.</p>
+        <button class="btn-add-first" (click)="irParaNovoProduto()">
+          <span>Adicionar Primeiro Produto</span>
+          <span class="btn-icon">➕</span>
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
