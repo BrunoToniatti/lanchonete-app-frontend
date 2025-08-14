@@ -11,10 +11,13 @@ export class Login {
 
   constructor(private router: Router) {}
 
-  onLogin() {
+  onLogin(event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
     // Aqui você pode adicionar a lógica de autenticação
     console.log('Login realizado!');
-    // this.router.navigate(['/dashboard']); // Redirecionar após login
+    this.router.navigate(['/interno']); // Redirecionar para área interna
   }
 
   onRegister() {

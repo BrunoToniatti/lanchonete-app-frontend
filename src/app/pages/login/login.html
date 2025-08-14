@@ -12,7 +12,7 @@
       <h2 class="welcome-text">Bem-vindo de volta!</h2>
       <p class="subtitle">Faça login para acessar seu painel</p>
       
-      <form (ngSubmit)="onLogin()">
+      <form (ngSubmit)="onLogin($event)">
         <div class="input-group">
           <label for="email">Email</label>
           <input type="email" id="email" placeholder="seu@email.com" required>
@@ -32,7 +32,7 @@
           <a href="#" class="forgot-password">Esqueceu a senha?</a>
         </div>
         
-        <button type="submit" class="login-btn">
+        <button type="button" class="login-btn" (click)="onLogin()">
           <span>Entrar</span>
           <div class="btn-icon">🍽️</div>
         </button>
