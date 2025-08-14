@@ -4,6 +4,7 @@ import { Login } from './pages/login/login';
 import { Interno } from './pages/interno/interno';
 import { Agendamentos } from './pages/agendamentos/agendamentos';
 import { Andamento } from './pages/andamento/andamento';
+import { Vendas } from './pages/vendas/vendas';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,10 @@ export const routes: Routes = [
     {
         path: "andamento",
         component: Andamento
+    },
+    {
+        path: "vendas",
+        component: Vendas
     }
 ];
 // You can add your application routes here

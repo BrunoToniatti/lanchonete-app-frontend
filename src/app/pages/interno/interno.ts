@@ -12,16 +12,9 @@ export class Interno {
   
   constructor(private router: Router) {}
 
-  activeTab: string = 'vendas';
+  activeTab: string = 'produtos';
   
-  // Dados hardcoded para demonstração - apenas vendas e produtos
-  vendas = [
-    { id: 1, item: 'Hambúrguer Especial', quantidade: 3, preco: 25.90, total: 77.70, status: 'Entregue' },
-    { id: 2, item: 'Pizza Margherita', quantidade: 1, preco: 35.00, total: 35.00, status: 'Preparando' },
-    { id: 3, item: 'Salada Caesar', quantidade: 2, preco: 18.50, total: 37.00, status: 'Entregue' },
-    { id: 4, item: 'Batata Frita Grande', quantidade: 4, preco: 12.90, total: 51.60, status: 'Pendente' }
-  ];
-
+  // Dados hardcoded apenas para produtos
   produtos = [
     { id: 1, nome: 'Hambúrguer Especial', categoria: 'Lanches', preco: 25.90, estoque: 45, status: 'Disponível' },
     { id: 2, nome: 'Pizza Margherita', categoria: 'Pizzas', preco: 35.00, estoque: 30, status: 'Disponível' },
@@ -42,6 +35,11 @@ export class Interno {
   // Navegar para página de andamento
   irParaAndamento() {
     this.router.navigate(['/andamento']);
+  }
+
+  // Navegar para página de vendas
+  irParaVendas() {
+    this.router.navigate(['/vendas']);
   }
 
   logout() {

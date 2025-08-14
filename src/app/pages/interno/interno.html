@@ -38,9 +38,8 @@
         <span class="tab-text">Andamento</span>
       </button>
       <button 
-        class="nav-tab" 
-        [class.active]="activeTab === 'vendas'"
-        (click)="setActiveTab('vendas')">
+        class="nav-tab nav-link" 
+        (click)="irParaVendas()">
         <span class="tab-icon">💰</span>
         <span class="tab-text">Vendas</span>
       </button>
@@ -56,61 +55,6 @@
 
   <!-- Main Content -->
   <main class="dashboard-main">
-    <!-- Vendas Tab -->
-    <div class="tab-content" *ngIf="activeTab === 'vendas'">
-      <div class="section-header">
-        <h2>Vendas Recentes</h2>
-        <div class="summary-cards">
-          <div class="summary-card">
-            <div class="card-icon">💰</div>
-            <div class="card-info">
-              <span class="card-value">R$ 1.247,30</span>
-              <span class="card-label">Total do Dia</span>
-            </div>
-          </div>
-          <div class="summary-card">
-            <div class="card-icon">📊</div>
-            <div class="card-info">
-              <span class="card-value">23</span>
-              <span class="card-label">Pedidos</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="table-container">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Quantidade</th>
-              <th>Preço Unit.</th>
-              <th>Total</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let venda of vendas">
-              <td class="item-name">{{venda.item}}</td>
-              <td class="quantity">{{venda.quantidade}}x</td>
-              <td class="price">R$ {{venda.preco.toFixed(2)}}</td>
-              <td class="total">R$ {{venda.total.toFixed(2)}}</td>
-              <td>
-                <span class="status-badge" [ngClass]="getStatusClass(venda.status)">
-                  {{venda.status}}
-                </span>
-              </td>
-              <td class="actions">
-                <button class="action-btn view">👁️</button>
-                <button class="action-btn edit">✏️</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
     <!-- Produtos Tab -->
     <div class="tab-content" *ngIf="activeTab === 'produtos'">
       <div class="section-header">

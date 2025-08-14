@@ -1,0 +1,144 @@
+<div class="vendas-container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="back-btn" (click)="voltarInterno()">
+          <span class="back-icon">←</span>
+          <span>Voltar</span>
+        </button>
+        <div class="page-title">
+          <div class="logo-icon">💰</div>
+          <div class="title-text">
+            <h1>Controle de Vendas Diárias</h1>
+            <p>J&B Restaurante - Estoque de Lanches</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="user-info">
+          <span class="user-name">Admin</span>
+          <div class="user-avatar">👨‍💼</div>
+        </div>
+        <button class="logout-btn" (click)="logout()">
+          <span>Sair</span>
+          <div class="logout-icon">🚪</div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-main">
+    <div class="content-wrapper">
+      <!-- Resumo do Dia -->
+      <div class="section-header">
+        <h2>Resumo de Vendas - Hoje</h2>
+        <div class="summary-cards">
+          <div class="summary-card vendas">
+            <div class="card-icon">🛒</div>
+            <div class="card-info">
+              <span class="card-value">{{resumoDia.totalVendas}}</span>
+              <span class="card-label">Total Vendas</span>
+            </div>
+          </div>
+          <div class="summary-card faturamento">
+            <div class="card-icon">💰</div>
+            <div class="card-info">
+              <span class="card-value">R$ {{resumoDia.faturamento.toFixed(2)}}</span>
+              <span class="card-label">Faturamento</span>
+            </div>
+          </div>
+          <div class="summary-card esgotados">
+            <div class="card-icon">❌</div>
+            <div class="card-info">
+              <span class="card-value">{{resumoDia.itensEsgotados}}</span>
+              <span class="card-label">Itens Esgotados</span>
+            </div>
+          </div>
+          <div class="summary-card estoque-baixo">
+            <div class="card-icon">⚠️</div>
+            <div class="card-info">
+              <span class="card-value">{{resumoDia.estoqueBaixo}}</span>
+              <span class="card-label">Estoque Baixo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Lanches -->
+      <div class="section-content">
+        <div class="section-title">
+          <h3>Estoque Diário de Lanches</h3>
+          <p>Controle de disponibilidade por item</p>
+        </div>
+
+        <div class="lanches-grid">
+          <div class="lanche-card" *ngFor="let lanche of lanchesDisponiveis" [ngClass]="getStatusClass(lanche.status)">
+            <!-- Header do Card -->
+            <div class="card-header">
+              <div class="lanche-info">
+                <div class="categoria-icon">{{getCategoriaIcon(lanche.categoria)}}</div>
+                <div class="lanche-details">
+                  <h4>{{lanche.nome}}</h4>
+                  <p class="categoria">{{lanche.categoria}}</p>
+                </div>
+              </div>
+              <div class="status-badge" [ngClass]="getStatusClass(lanche.status)">
+                <span class="status-icon">{{getStatusIcon(lanche.status)}}</span>
+                <span class="status-text">{{lanche.status}}</span>
+              </div>
+            </div>
+
+            <!-- Conteúdo do Card -->
+            <div class="card-content">
+              <div class="preco-info">
+                <span class="preco">R$ {{lanche.preco.toFixed(2)}}</span>
+              </div>
+
+              <div class="estoque-info">
+                <div class="estoque-numeros">
+                  <div class="estoque-item">
+                    <span class="label">Total:</span>
+                    <span class="value">{{lanche.estoqueTotal}}</span>
+                  </div>
+                  <div class="estoque-item">
+                    <span class="label">Vendidos:</span>
+                    <span class="value vendidos">{{lanche.vendidos}}</span>
+                  </div>
+                  <div class="estoque-item">
+                    <span class="label">Disponível:</span>
+                    <span class="value disponivel" [ngClass]="lanche.disponivel === 0 ? 'zero' : ''">{{lanche.disponivel}}</span>
+                  </div>
+                </div>
+
+                <!-- Barra de Progresso -->
+                <div class="progress-bar">
+                  <div class="progress-fill" [style.width.%]="getPercentualVendido(lanche.vendidos, lanche.estoqueTotal)"></div>
+                </div>
+                <div class="progress-text">
+                  {{getPercentualVendido(lanche.vendidos, lanche.estoqueTotal)}}% vendido
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer do Card -->
+            <div class="card-footer">
+              <div class="faturamento-item">
+                <span class="label">Faturamento:</span>
+                <span class="value">R$ {{(lanche.vendidos * lanche.preco).toFixed(2)}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagem quando não há itens -->
+      <div class="empty-state" *ngIf="lanchesDisponiveis.length === 0">
+        <div class="empty-icon">🍽️</div>
+        <h3>Nenhum lanche cadastrado</h3>
+        <p>Adicione itens ao estoque para começar as vendas.</p>
+      </div>
+    </div>
+  </main>
+</div>
