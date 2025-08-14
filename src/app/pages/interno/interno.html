@@ -32,6 +32,12 @@
         <span class="tab-text">Agendamentos</span>
       </button>
       <button 
+        class="nav-tab nav-link" 
+        (click)="irParaAndamento()">
+        <span class="tab-icon">🍳</span>
+        <span class="tab-text">Andamento</span>
+      </button>
+      <button 
         class="nav-tab" 
         [class.active]="activeTab === 'vendas'"
         (click)="setActiveTab('vendas')">

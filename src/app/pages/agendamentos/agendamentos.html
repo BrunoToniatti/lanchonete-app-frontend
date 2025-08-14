@@ -44,10 +44,12 @@
               class="date-filter">
           </div>
         </div>
-        <button class="add-btn">
-          <span>Novo Pedido</span>
-          <span class="btn-icon">➕</span>
-        </button>
+        <div class="header-actions">
+          <button class="add-btn">
+            <span>Novo Pedido</span>
+            <span class="btn-icon">➕</span>
+          </button>
+        </div>
       </div>
       
       <div class="summary-info">
@@ -89,6 +91,7 @@
               <th>Celular</th>
               <th>Horário</th>
               <th>Lanche</th>
+              <th>Observações</th>
               <th>Valor</th>
               <th>Status</th>
               <th>Ações</th>
@@ -100,6 +103,9 @@
               <td class="phone-number">{{agendamento.celular}}</td>
               <td class="time">{{agendamento.hora}}</td>
               <td class="lunch-item">{{agendamento.lanche}}</td>
+              <td class="observations" title="{{agendamento.observacoes}}">
+                {{agendamento.observacoes ? (agendamento.observacoes.length > 30 ? agendamento.observacoes.substring(0, 30) + '...' : agendamento.observacoes) : 'Sem observações'}}
+              </td>
               <td class="value">R$ {{agendamento.valor.toFixed(2)}}</td>
               <td>
                 <span class="status-badge" [ngClass]="getStatusClass(agendamento.status)">

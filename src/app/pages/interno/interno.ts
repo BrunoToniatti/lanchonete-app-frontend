@@ -39,6 +39,11 @@ export class Interno {
     this.router.navigate(['/agendamentos']);
   }
 
+  // Navegar para página de andamento
+  irParaAndamento() {
+    this.router.navigate(['/andamento']);
+  }
+
   logout() {
     this.router.navigate(['/login']);
   }

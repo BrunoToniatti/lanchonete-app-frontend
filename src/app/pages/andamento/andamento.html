@@ -1,0 +1,104 @@
+<div class="andamento-container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="back-btn" (click)="voltarInterno()">
+          <span class="back-icon">←</span>
+          <span>Voltar</span>
+        </button>
+        <div class="page-title">
+          <div class="logo-icon">🍳</div>
+          <div class="title-text">
+            <h1>Pedidos em Andamento</h1>
+            <p>J&B Restaurante - Lanchonete Universitária</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="user-info">
+          <span class="user-name">Admin</span>
+          <div class="user-avatar">👨‍💼</div>
+        </div>
+        <button class="logout-btn" (click)="logout()">
+          <span>Sair</span>
+          <div class="logout-icon">🚪</div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-main">
+    <div class="content-wrapper">
+      <div class="section-header">
+        <h2>Pedidos Confirmados em Andamento</h2>
+        <div class="summary-cards">
+          <div class="summary-card">
+            <div class="card-icon">👨‍🍳</div>
+            <div class="card-info">
+              <span class="card-value">3</span>
+              <span class="card-label">Preparando</span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="card-icon">✅</div>
+            <div class="card-info">
+              <span class="card-value">1</span>
+              <span class="card-label">Pronto</span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="card-icon">📦</div>
+            <div class="card-info">
+              <span class="card-value">1</span>
+              <span class="card-label">Entregue</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Pedidos -->
+      <div class="pedidos-list">
+        <div class="pedido-card" *ngFor="let pedido of pedidosConfirmados" [ngClass]="getStatusClass(pedido.status)">
+          <div class="pedido-header">
+            <div class="pedido-info">
+              <h3>{{pedido.aluno}}</h3>
+              <p class="celular">📱 {{pedido.celular}}</p>
+              <p class="hora">🕐 {{pedido.hora}}</p>
+            </div>
+            <div class="status-badge" [ngClass]="getStatusClass(pedido.status)">
+              <span class="status-icon">{{getStatusIcon(pedido.status)}}</span>
+              <span class="status-text">{{pedido.status}}</span>
+            </div>
+          </div>
+
+          <div class="pedido-content">
+            <div class="lanche-info">
+              <h4>{{pedido.lanche}}</h4>
+              <p class="observacoes" *ngIf="pedido.observacoes">
+                <strong>Observações:</strong> {{pedido.observacoes}}
+              </p>
+              <p class="valor">
+                <strong>Valor:</strong> R$ {{pedido.valor.toFixed(2)}}
+              </p>
+            </div>
+            
+            <div class="tempo-info">
+              <div class="tempo-badge" [ngClass]="pedido.status === 'Entregue' ? 'finalizado' : 'andamento'">
+                ⏱️ {{pedido.tempoEstimado}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagem quando não há pedidos -->
+      <div class="empty-state" *ngIf="pedidosConfirmados.length === 0">
+        <div class="empty-icon">🍽️</div>
+        <h3>Nenhum pedido em andamento</h3>
+        <p>Todos os pedidos foram finalizados ou não há pedidos confirmados.</p>
+      </div>
+    </div>
+  </main>
+</div>

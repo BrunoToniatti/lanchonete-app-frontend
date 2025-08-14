@@ -178,6 +178,31 @@
       }
     }
     
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .prep-btn {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
+      }
+    }
+    
     .add-btn {
       background: linear-gradient(135deg, #ff6b35, #ff4500);
       color: white;
@@ -309,6 +334,20 @@
           
           &.lunch-item {
             color: #555;
+          }
+          
+          &.observations {
+            color: #666;
+            font-style: italic;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: help;
+            
+            &:hover {
+              color: #333;
+            }
           }
           
           &.value {
