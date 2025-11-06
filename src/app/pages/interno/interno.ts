@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Header } from "../header/header";
 
 @Component({
   selector: 'app-interno',
-  imports: [CommonModule],
+  imports: [CommonModule, Header],
   templateUrl: './interno.html',
   styleUrl: './interno.scss'
 })
 export class Interno {
-  
+
   constructor(private router: Router) {}
 
   // Navegar para página de agendamentos

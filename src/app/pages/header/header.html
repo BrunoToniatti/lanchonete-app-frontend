@@ -1,0 +1,26 @@
+<header class="super-header">
+	<div class="header-content">
+		<div class="logo-area" (click)="goHome()">
+			<span class="logo-emoji animate-pop">🍔</span>
+			<span class="logo-title">J&B <span class="logo-sub">Restaurante</span></span>
+		</div>
+		<nav class="menu-area">
+			<div class="menu-dropbox" [class.open]="menuOpen" (click)="toggleMenu($event)">
+				<span class="menu-label">
+					<span class="menu-icon">☰</span> Menu
+					<span class="menu-arrow" [class.rotated]="menuOpen">▼</span>
+				</span>
+			@if (menuOpen) {
+			<ul class="menu-list">
+					<li (click)="goTo('agendamentos', $event)"><span class="menu-list-icon">📅</span> Agendamentos</li>
+					<li (click)="goTo('andamento', $event)"><span class="menu-list-icon">🍳</span> Andamento</li>
+					<li (click)="goTo('vendas', $event)"><span class="menu-list-icon">💰</span> Vendas</li>
+					<li (click)="goTo('produtos', $event)"><span class="menu-list-icon">🍽️</span> Produtos</li>
+					<li class="menu-divider"></li>
+					<li (click)="logout($event)" class="menu-logout"><span class="menu-list-icon">🚪</span> Sair</li>
+			</ul>
+			}
+			</div>
+		</nav>
+	</div>
+</header>

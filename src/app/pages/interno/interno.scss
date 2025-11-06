@@ -10,7 +10,7 @@
   color: white;
   padding: 1rem 2rem;
   box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-  
+
   .header-content {
     display: flex;
     justify-content: space-between;
@@ -18,17 +18,17 @@
     max-width: 1400px;
     margin: 0 auto;
   }
-  
+
   .logo-section {
     display: flex;
     align-items: center;
     gap: 1rem;
-    
+
     .logo-icon {
       font-size: 2.5rem;
       animation: bounce 2s infinite;
     }
-    
+
     .logo-text {
       h1 {
         font-size: 1.8rem;
@@ -36,7 +36,7 @@
         font-weight: bold;
         font-family: 'Georgia', serif;
       }
-      
+
       p {
         margin: 0;
         opacity: 0.9;
@@ -44,21 +44,21 @@
       }
     }
   }
-  
+
   .header-actions {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    
+
     .user-info {
       display: flex;
       align-items: center;
       gap: 0.8rem;
-      
+
       .user-name {
         font-weight: 500;
       }
-      
+
       .user-avatar {
         font-size: 1.5rem;
         background: rgba(255, 255, 255, 0.2);
@@ -67,7 +67,7 @@
         backdrop-filter: blur(10px);
       }
     }
-    
+
     .logout-btn {
       background: rgba(255, 255, 255, 0.2);
       border: 2px solid rgba(255, 255, 255, 0.3);
@@ -80,31 +80,28 @@
       gap: 0.5rem;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
-      
+
       &:hover {
         background: rgba(255, 255, 255, 0.3);
         transform: translateY(-2px);
       }
-      
+
       .logout-icon {
         font-size: 1.1rem;
       }
     }
   }
-}
-
-// Navigation
 .dashboard-nav {
   background: white;
   padding: 0 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  
+
   .nav-tabs {
     display: flex;
     max-width: 1400px;
     margin: 0 auto;
     gap: 0.5rem;
-    
+
     .nav-tab {
       background: transparent;
       border: none;
@@ -117,32 +114,32 @@
       border-bottom: 3px solid transparent;
       color: #666;
       font-weight: 500;
-      
+
       .tab-icon {
         font-size: 1.3rem;
       }
-      
+
       .tab-text {
         font-size: 1rem;
       }
-      
+
       &:hover {
         background: rgba(255, 107, 53, 0.1);
         color: #ff6b35;
       }
-      
+
       &.active {
         color: #ff6b35;
         border-bottom-color: #ff6b35;
         background: rgba(255, 107, 53, 0.05);
       }
-      
+
       &.nav-link {
         background: rgba(255, 107, 53, 0.1);
         color: #ff6b35;
         border: 2px solid rgba(255, 107, 53, 0.2);
         border-radius: 10px 10px 0 0;
-        
+
         &:hover {
           background: rgba(255, 107, 53, 0.2);
           transform: translateY(-2px);
@@ -157,38 +154,38 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  
+
   .tab-content {
     animation: fadeIn 0.5s ease-in;
   }
-  
+
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 2rem;
-    
+
     .title-section {
       flex: 1;
-      
+
       h2 {
         color: #333;
         font-size: 1.8rem;
         margin: 0 0 1rem 0;
         font-weight: 600;
       }
-      
+
       .filter-section {
         display: flex;
         align-items: center;
         gap: 1rem;
-        
+
         label {
           color: #666;
           font-weight: 500;
           font-size: 0.9rem;
         }
-        
+
         .date-filter {
           padding: 0.8rem 1rem;
           border: 2px solid #e0e0e0;
@@ -197,7 +194,7 @@
           background: white;
           color: #333;
           transition: all 0.3s ease;
-          
+
           &:focus {
             outline: none;
             border-color: #ff6b35;
@@ -206,7 +203,7 @@
         }
       }
     }
-    
+
     .add-btn {
       background: linear-gradient(135deg, #ff6b35, #ff4500);
       color: white;
@@ -219,23 +216,23 @@
       gap: 0.5rem;
       font-weight: 600;
       transition: all 0.3s ease;
-      
+
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 16px rgba(255, 107, 53, 0.3);
       }
-      
+
       .btn-icon {
         font-size: 1.1rem;
       }
     }
-    
+
     .summary-info {
       display: flex;
       gap: 1rem;
       margin-bottom: 2rem;
       flex-wrap: wrap;
-      
+
       .summary-card {
         background: white;
         padding: 1.5rem;
@@ -245,7 +242,7 @@
         align-items: center;
         gap: 1rem;
         min-width: 150px;
-        
+
         .card-icon {
           font-size: 2rem;
           background: linear-gradient(135deg, #ff6b35, #ff4500);
@@ -257,17 +254,17 @@
           align-items: center;
           justify-content: center;
         }
-        
+
         .card-info {
           display: flex;
           flex-direction: column;
-          
+
           .card-value {
             font-size: 1.5rem;
             font-weight: bold;
             color: #333;
           }
-          
+
           .card-label {
             font-size: 0.9rem;
             color: #666;
@@ -284,15 +281,15 @@
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  
+
   .data-table {
     width: 100%;
     border-collapse: collapse;
-    
+
     thead {
       background: linear-gradient(135deg, #ff6b35, #f7931e);
       color: white;
-      
+
       th {
         padding: 1.2rem 1rem;
         text-align: left;
@@ -301,38 +298,38 @@
         letter-spacing: 0.5px;
       }
     }
-    
+
     tbody {
       tr {
         border-bottom: 1px solid #f0f0f0;
         transition: background-color 0.3s ease;
-        
+
         &:hover {
           background: rgba(255, 107, 53, 0.05);
         }
-        
+
         &:last-child {
           border-bottom: none;
         }
-        
+
         td {
           padding: 1rem;
           color: #333;
-          
+
           &.customer-name,
           &.item-name,
           &.product-name {
             font-weight: 600;
             color: #ff6b35;
           }
-          
+
           &.people-count,
           &.quantity,
           &.stock {
             font-weight: 500;
             color: #666;
           }
-          
+
           &.table-number {
             font-weight: 600;
             color: #333;
@@ -342,13 +339,13 @@
             padding: 0.5rem;
             margin: 0.5rem 0;
           }
-          
+
           &.price,
           &.total {
             font-weight: 600;
             color: #2e7d32;
           }
-          
+
           &.category {
             color: #666;
             font-style: italic;
@@ -367,22 +364,22 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  
+
   &.status-success {
     background: rgba(76, 175, 80, 0.2);
     color: #2e7d32;
   }
-  
+
   &.status-warning {
     background: rgba(255, 193, 7, 0.2);
     color: #f57c00;
   }
-  
+
   &.status-danger {
     background: rgba(244, 67, 54, 0.2);
     color: #d32f2f;
   }
-  
+
   &.status-default {
     background: rgba(158, 158, 158, 0.2);
     color: #424242;
@@ -393,7 +390,7 @@
 .actions {
   display: flex;
   gap: 0.5rem;
-  
+
   .action-btn {
     background: transparent;
     border: 1px solid #e0e0e0;
@@ -402,44 +399,44 @@
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
-    
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     &.confirm {
       background: rgba(76, 175, 80, 0.1);
       border-color: #4caf50;
       color: #2e7d32;
-      
+
       &:hover {
         background: #4caf50;
         color: white;
       }
     }
-    
+
     &.reject {
       background: rgba(244, 67, 54, 0.1);
       border-color: #f44336;
       color: #d32f2f;
-      
+
       &:hover {
         background: #f44336;
         color: white;
       }
     }
-    
+
     &.edit:hover {
       background: rgba(33, 150, 243, 0.1);
       border-color: #2196f3;
     }
-    
+
     &.delete:hover {
       background: rgba(244, 67, 54, 0.1);
       border-color: #f44336;
     }
-    
+
     &.view:hover {
       background: rgba(76, 175, 80, 0.1);
       border-color: #4caf50;
@@ -452,18 +449,18 @@
   text-align: center;
   padding: 3rem 2rem;
   color: #666;
-  
+
   .no-data-icon {
     font-size: 4rem;
     margin-bottom: 1rem;
     opacity: 0.5;
   }
-  
+
   p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
   }
-  
+
   .add-btn {
     background: linear-gradient(135deg, #ff6b35, #ff4500);
     color: white;
@@ -476,7 +473,7 @@
     gap: 0.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 16px rgba(255, 107, 53, 0.3);
@@ -490,7 +487,7 @@
   gap: 1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  
+
   .summary-card {
     background: white;
     padding: 1.5rem;
@@ -500,7 +497,7 @@
     align-items: center;
     gap: 1rem;
     min-width: 150px;
-    
+
     .card-icon {
       font-size: 2rem;
       background: linear-gradient(135deg, #ff6b35, #ff4500);
@@ -512,17 +509,17 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .card-info {
       display: flex;
       flex-direction: column;
-      
+
       .card-value {
         font-size: 1.5rem;
         font-weight: bold;
         color: #333;
       }
-      
+
       .card-label {
         font-size: 0.9rem;
         color: #666;
@@ -572,22 +569,22 @@
       gap: 1rem;
       text-align: center;
     }
-    
+
     .logo-section {
       justify-content: center;
     }
   }
-  
+
   .dashboard-nav {
     .nav-tabs {
       flex-direction: column;
-      
+
       .nav-tab {
         justify-content: center;
         padding: 1rem;
         border-bottom: none;
         border-left: 3px solid transparent;
-        
+
         &.active {
           border-left-color: #ff6b35;
           border-bottom-color: transparent;
@@ -595,89 +592,89 @@
       }
     }
   }
-  
+
   .section-header {
     flex-direction: column;
     gap: 1rem;
     align-items: stretch;
-    
+
     .title-section {
       .filter-section {
         flex-direction: column;
         gap: 0.5rem;
         align-items: stretch;
-        
+
         .date-filter {
           width: 100%;
         }
       }
     }
-    
+
     .summary-info {
       justify-content: center;
       flex-wrap: wrap;
     }
   }
-  
+
   .table-container {
     overflow-x: auto;
-    
+
     .data-table {
       min-width: 600px;
-      
+
       th, td {
         padding: 0.8rem 0.5rem;
         font-size: 0.9rem;
       }
     }
   }
-  
+
   .actions {
     flex-direction: column;
     gap: 0.3rem;
-    
+
     .action-btn {
       padding: 0.4rem;
       font-size: 0.9rem;
-      
+
       &.confirm, &.reject {
         padding: 0.6rem;
       }
     }
   }
-  
+
   .summary-info {
     .summary-card {
       min-width: 100px;
       padding: 1rem;
-      
+
       .card-icon {
         width: 40px;
         height: 40px;
         font-size: 1.5rem;
       }
-      
+
       .card-value {
         font-size: 1.2rem !important;
       }
-      
+
       .card-label {
         font-size: 0.8rem !important;
       }
     }
   }
-  
+
   .no-data {
     padding: 2rem 1rem;
-    
+
     .no-data-icon {
       font-size: 3rem;
     }
-    
+
     p {
       font-size: 1rem;
     }
-    
+
     .add-btn {
       padding: 0.8rem 1.5rem;
       font-size: 0.9rem;
@@ -689,37 +686,37 @@
   .dashboard-main {
     padding: 1rem 0.5rem;
   }
-  
+
   .section-header h2 {
     font-size: 1.4rem;
   }
-  
+
   .summary-cards .summary-card {
     padding: 1rem;
     min-width: 120px;
-    
+
     .card-icon {
       width: 40px;
       height: 40px;
       font-size: 1.5rem;
     }
-    
+
     .card-value {
       font-size: 1.2rem !important;
     }
-    
+
     .card-label {
       font-size: 0.8rem !important;
     }
   }
-  
+
   .data-table {
     th, td {
       padding: 0.6rem 0.4rem;
       font-size: 0.8rem;
     }
   }
-  
+
   .status-badge {
     padding: 0.3rem 0.6rem;
     font-size: 0.7rem;
@@ -730,18 +727,18 @@
 .dashboard-welcome {
   padding: 2rem;
   text-align: center;
-  
+
   .welcome-content {
     max-width: 1000px;
     margin: 0 auto;
-    
+
     h2 {
       color: white;
       font-size: 2.5rem;
       margin: 0 0 1rem 0;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
-    
+
     p {
       color: rgba(255, 255, 255, 0.9);
       font-size: 1.2rem;
@@ -765,24 +762,24 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
-  
+
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
     border-color: #ff6b35;
   }
-  
+
   .feature-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
   }
-  
+
   h3 {
     color: #333;
     font-size: 1.5rem;
     margin: 0 0 1rem 0;
   }
-  
+
   p {
     color: #666;
     font-size: 1rem;
@@ -794,24 +791,25 @@
 @media (max-width: 768px) {
   .dashboard-welcome {
     padding: 1rem;
-    
+
     .welcome-content {
       h2 {
         font-size: 2rem;
       }
-      
+
       p {
         font-size: 1rem;
       }
     }
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .feature-card {
     padding: 1.5rem;
   }
+}
 }

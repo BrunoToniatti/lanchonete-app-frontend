@@ -1,56 +1,5 @@
+<app-header></app-header>
 <div class="dashboard-container">
-  <!-- Header -->
-  <header class="dashboard-header">
-    <div class="header-content">
-      <div class="logo-section">
-        <div class="logo-icon">🍔</div>
-        <div class="logo-text">
-          <h1>J&B Restaurante</h1>
-          <p>Painel Administrativo</p>
-        </div>
-      </div>
-      <div class="header-actions">
-        <div class="user-info">
-          <span class="user-name">Bem-vindo, Admin!</span>
-          <div class="user-avatar">👨‍💼</div>
-        </div>
-        <button class="logout-btn" (click)="logout()">
-          <span>Sair</span>
-          <div class="logout-icon">🚪</div>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Navigation Tabs -->
-  <nav class="dashboard-nav">
-    <div class="nav-tabs">
-      <button 
-        class="nav-tab nav-link" 
-        (click)="irParaAgendamentos()">
-        <span class="tab-icon">📅</span>
-        <span class="tab-text">Agendamentos</span>
-      </button>
-      <button 
-        class="nav-tab nav-link" 
-        (click)="irParaAndamento()">
-        <span class="tab-icon">🍳</span>
-        <span class="tab-text">Andamento</span>
-      </button>
-      <button 
-        class="nav-tab nav-link" 
-        (click)="irParaVendas()">
-        <span class="tab-icon">💰</span>
-        <span class="tab-text">Vendas</span>
-      </button>
-      <button 
-        class="nav-tab nav-link" 
-        (click)="irParaProdutos()">
-        <span class="tab-icon">🍽️</span>
-        <span class="tab-text">Produtos</span>
-      </button>
-    </div>
-  </nav>
 
   <!-- Main Content -->
   <main class="dashboard-main">
@@ -58,26 +7,26 @@
       <div class="welcome-content">
         <h2>Bem-vindo ao Painel Administrativo</h2>
         <p>Use a navegação acima para acessar as diferentes seções do sistema:</p>
-        
+
         <div class="features-grid">
           <div class="feature-card" (click)="irParaAgendamentos()">
             <div class="feature-icon">📅</div>
             <h3>Agendamentos</h3>
             <p>Gerencie os pedidos agendados pelos alunos</p>
           </div>
-          
+
           <div class="feature-card" (click)="irParaAndamento()">
             <div class="feature-icon">🍳</div>
             <h3>Andamento</h3>
             <p>Acompanhe os pedidos em preparação</p>
           </div>
-          
+
           <div class="feature-card" (click)="irParaVendas()">
             <div class="feature-icon">💰</div>
             <h3>Vendas</h3>
             <p>Controle o estoque diário de lanches</p>
           </div>
-          
+
           <div class="feature-card" (click)="irParaProdutos()">
             <div class="feature-icon">🍽️</div>
             <h3>Produtos</h3>
